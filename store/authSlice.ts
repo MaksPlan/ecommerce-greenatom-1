@@ -1,6 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IUser } from "../interface/entities/interface";
 
-const initialState = {
+type TUserState = IUser;
+
+const initialState: TUserState = {
     email: null,
     token: null,
     id: null,
@@ -11,7 +14,7 @@ export const authSlice = createSlice(
         name: 'auth',
         initialState,
         reducers: {
-            setUser: (state, action) => {
+            setUser: (state, action: PayloadAction<IUser>) => {
                 state.email = action.payload.email;
                 state.id = action.payload.id;
                 state.token = action.payload.token
@@ -24,8 +27,7 @@ export const authSlice = createSlice(
         }
     }
 
-)  
- export const {setUser, removeUser} = authSlice.actions
- export default authSlice.reducer
-//  export const getUser = useAppSelector(state => state.user)
- 
+)
+export const { setUser, removeUser } = authSlice.actions
+export default authSlice.reducer
+

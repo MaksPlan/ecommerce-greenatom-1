@@ -1,6 +1,7 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import authSlice from "./authSlice";
+import basketSlice from "./basketSlice";
 import favorietsSlice from "./favorietsSlice";
 
 
@@ -10,6 +11,7 @@ export const store = configureStore(
             //сюда подключаем готовые редюсерры
             favoriets: favorietsSlice,
             user: authSlice,
+            basket: basketSlice,
 
         }
     }
